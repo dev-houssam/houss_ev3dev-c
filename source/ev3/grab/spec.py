@@ -11,10 +11,10 @@ __copyright__ = "See the LICENSE file."
 
 #pylint: skip-file
 
-import urllib2
 import json
 import os
-import urlparse
+from urllib import parse as urlparse
+from urllib import request as urllib2
 
 #   ---------------------------------------------------------------------------
 DIR = os.path.dirname( os.path.realpath(__file__))
@@ -85,9 +85,9 @@ def grab_sensors( url, force=False ):
 #       -- append the sensor only if it has any mode or command
         if modes or cmds:
             result += D_SENSOR_ROW.format( sensor[ 'name' ], modes, cmds )
-            print sensor[ 'name' ]
+            print( sensor[ 'name' ])
         else:
-            print '{0: <24}(ignored)'.format( sensor[ 'name' ])
+            print( '{0: <24}(ignored)'.format( sensor[ 'name' ]))
 
     result += D_SENSOR_END
 
@@ -129,7 +129,7 @@ def grab_ports( url, force=False ):
             modes = ''
 
         result += D_PORT_ROW.format( port[ 'name' ], modes )
-        print port[ 'name' ]
+        print( port[ 'name' ])
 
     result += D_PORT_END
 
