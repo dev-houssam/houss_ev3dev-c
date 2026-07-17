@@ -88,6 +88,15 @@ You have to take into account that, by default, the preprocessing stage
 is skipping when compilation is performed on the brick or using Docker.
 Please set `SKIP_PP = 0` in the makefile to allow preprocessing anywhere.
 
+To run the preprocessing stage, initialize the bundled **yupp** submodule
+and use Python 3.11 or newer:
+
+    git submodule update --init yupp
+    make SKIP_PP=0
+
+The makefiles use `python3` by default. Set `PYTHON` when a different command
+or interpreter path is required, for example `make SKIP_PP=0 PYTHON=python`.
+
 #### How can I see some examples
 
 Name           | Description
@@ -172,8 +181,8 @@ repository and its submodules:
 Pull the latest library and its submodules:
 
     cd ev3dev-c/
-    git pull origin master
-    git submodule foreach git pull origin master
+    git pull --recurse-submodules
+    git submodule update --init --recursive
 
 ### CONTACT
 

@@ -1,7 +1,7 @@
 TOP = ..
 
-YUPP_HOME = $(TOP)/yupp
-PP = python -u $(YUPP_HOME)/yup.py
+PYTHON ?= python3
+PP = $(PYTHON) -u $(TOP)/script/yupp.py
 
 E_YU = .yu
 E_YUH = .yu-h
