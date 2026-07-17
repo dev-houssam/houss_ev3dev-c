@@ -38,7 +38,7 @@ EV3 = 0
 endif
 
 # -- yupp preprocessor
-YUPP_HOME = $(TOP)/yupp
+PYTHON ?= python3
 
 # -- perform preprocessing anywhere
 # SKIP_PP = 0
@@ -48,7 +48,7 @@ SKIP_PP = $(EV3)
 # SKIP_PP = 1
 
 ifeq ($(SKIP_PP),0)
-PP = python -u $(YUPP_HOME)/yup.py
+PP = $(PYTHON) -u $(TOP)/script/yupp.py
 else
 PP = @echo makefile: warning: preprocessing step is skipped,
 endif
